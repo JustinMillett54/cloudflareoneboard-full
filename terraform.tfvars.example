@@ -1,0 +1,18 @@
+cloudflare_account_id = "0123456789abcdef0123456789abcdef"
+
+zones = {
+  main = { domain = "example.com" }
+  corp = { domain = "example.io" }
+}
+
+dns_records = {
+  main = [
+    { hostname = "",      type = "A",     target = "203.0.113.10", proxied = true },
+    { hostname = "www",   type = "CNAME", target = "example.com",  proxied = true },
+    { hostname = "app",   type = "CNAME", target = "app.example.com", proxied = true },
+  ]
+  corp = [
+    { hostname = "",    type = "A",     target = "198.51.100.20", proxied = true },
+    { hostname = "www", type = "CNAME", target = "example.io",    proxied = true },
+  ]
+}
